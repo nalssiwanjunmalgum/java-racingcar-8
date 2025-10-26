@@ -16,6 +16,12 @@ public class Car {
         this.carName = carName;
     }
 
+    public void receiveCarSignal(CarSignal carSignal) {
+        if (carSignal.isPermitted()) {
+            move();
+        }
+    }
+
     public void move() {
         this.position = position.increment();
     }
