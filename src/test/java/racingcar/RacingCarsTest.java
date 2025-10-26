@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -73,6 +74,38 @@ public class RacingCarsTest {
                 Assertions.assertThatThrownBy(() -> CarNamesValidator.validateDelimiter("pobi,woonin"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("구분자와 공백을 확인해주세요.");
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("통합 테스트")
+    class IntegrationTest {
+        @Test
+        @DisplayName("정상 동작")
+        void integration() {
+            Assertions.assertThatCode( () -> new RacingCars("pobi,woni") )
+                    .doesNotThrowAnyException();
+        }
+
+        @Test
+        @DisplayName("구성된 Car 요소 확인")
+        void check_internal_element() {
+            RacingCars racingCars = new RacingCars("pobi,woni,right");
+            Assertions.assertThat(racingCars.getRacingCars())
+                    .containsExactly(new Car(new CarName("pobi")),
+                            new Car(new CarName("woni")),
+                            new Car(new CarName("right")));
+        }
+
+        @Test
+        @DisplayName("구성된 Car 요소 내 position 확인")
+        void check_internal_element_position_0L() {
+            RacingCars racingCars = new RacingCars("pobi,woni,right");
+            List<Car> internalCars = racingCars.getRacingCars();
+
+            for (Car car : internalCars) {
+                Assertions.assertThat(car.getPosition()).isEqualTo(new Position());
             }
         }
     }
