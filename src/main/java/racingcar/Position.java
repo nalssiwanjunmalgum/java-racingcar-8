@@ -18,6 +18,10 @@ public class Position {
         return new Position(positionValue + 1);
     }
 
+    public long getPositionValue() {
+        return positionValue;
+    }
+
     private void validatePositionValue(long positionValue) {
         if (positionValue < 0) {
             throw new IllegalArgumentException();

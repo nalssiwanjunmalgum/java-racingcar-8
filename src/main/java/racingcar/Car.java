@@ -2,9 +2,11 @@ package racingcar;
 
 public class Car {
     private Position position;
+    private final CarName carName;
 
-    public Car(Position position) {
+    public Car(Position position, CarName carName) {
         this.position = position;
+        this.carName = carName;
     }
 
     public void move() {
@@ -12,6 +14,10 @@ public class Car {
     }
 
     public Position getPosition() {
-        return position;
+        return new Position(position.getPositionValue());
+    }
+
+    public CarName getCarName() {
+        return new CarName(carName.getNameValue());
     }
 }
