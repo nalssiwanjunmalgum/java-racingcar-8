@@ -22,6 +22,17 @@ public class RacingCars {
         receivePerSignal(randomCarSignals);
     }
 
+    public List<Car> findWinner() {
+        long maxPositionValue = racingCars.stream()
+                .mapToLong(car -> car.getPosition().getPositionValue())
+                .max()
+                .orElse(0L);
+
+        return racingCars.stream()
+                .filter(car -> car.getPosition().getPositionValue() == maxPositionValue)
+                .toList();
+    }
+
     private void validateNames(String carNamesInput) {
         checkDelimiter(carNamesInput);
     }

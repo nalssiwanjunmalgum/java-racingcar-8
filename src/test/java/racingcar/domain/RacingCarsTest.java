@@ -117,12 +117,13 @@ public class RacingCarsTest {
     @DisplayName("신호를 받아 전진 여부를 결정합니다")
     class moveOrStopWithRandomSignalTest {
         RacingCars racingCars = new RacingCars("pobi,woni,right");
-        RandomCarSignals randomCarSignals = new RandomCarSignals(List.of(1, 3, 4));
+        RandomCarSignals randomCarSignalSA = new RandomCarSignals(List.of(1, 3, 4));
+        RandomCarSignals randomCarSignalSB = new RandomCarSignals(List.of(1, 7, 4));
 
         @Test
         @DisplayName("RandomCarSignals를 받아 전진 여부를 결정합니다")
         void receive_RandomCarSignals() {
-            racingCars.receiveSignals(randomCarSignals);
+            racingCars.receiveSignals(randomCarSignalSA);
 
             List<Car> cars = racingCars.getRacingCars();
             Car stoppedCarA = cars.get(0);
@@ -143,6 +144,38 @@ public class RacingCarsTest {
                     .isEqualTo(new Position(1L));
             Assertions.assertThat(movedCar.getCarName())
                     .isEqualTo(new CarName("right"));
+
+            List<Car> winner = racingCars.findWinner();
+            Assertions.assertThat(winner).containsExactly(movedCar);
+        }
+
+        @Test
+        @DisplayName("RandomCarSignals를 받아 전진 여부를 결정합니다")
+        void receive_RandomCarSignals_2() {
+            racingCars.receiveSignals(randomCarSignalSB);
+
+            List<Car> cars = racingCars.getRacingCars();
+            Car stoppedCarA = cars.get(0);
+            Car movedCarA = cars.get(1);
+            Car movedCarB = cars.get(2);
+
+            Assertions.assertThat(stoppedCarA.getPosition())
+                    .isEqualTo(new Position(0L));
+            Assertions.assertThat(stoppedCarA.getCarName())
+                    .isEqualTo(new CarName("pobi"));
+
+            Assertions.assertThat(movedCarA.getPosition())
+                    .isEqualTo(new Position(1L));
+            Assertions.assertThat(movedCarA.getCarName())
+                    .isEqualTo(new CarName("woni"));
+
+            Assertions.assertThat(movedCarB.getPosition())
+                    .isEqualTo(new Position(1L));
+            Assertions.assertThat(movedCarB.getCarName())
+                    .isEqualTo(new CarName("right"));
+
+            List<Car> winner = racingCars.findWinner();
+            Assertions.assertThat(winner).containsExactly(movedCarA, movedCarB);
         }
     }
 }
