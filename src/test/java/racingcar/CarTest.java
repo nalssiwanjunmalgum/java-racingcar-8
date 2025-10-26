@@ -15,4 +15,12 @@ public class CarTest {
 
         assertThat(car.getPosition()).isEqualTo(new Position(1L));
     }
+
+    @Test
+    @DisplayName("자동차가 전진하지 않으면 Position 내 값이 변하지 않는다")
+    void car_position_value_not_change() {
+        Car car = new Car(new Position());
+
+        assertThat(car.getPosition()).isEqualTo(new Position(0L));
+    }
 }
