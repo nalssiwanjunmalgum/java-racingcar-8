@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 import racingcar.domain.vo.CarName;
 import racingcar.domain.vo.CarSignal;
 import racingcar.domain.vo.Position;
