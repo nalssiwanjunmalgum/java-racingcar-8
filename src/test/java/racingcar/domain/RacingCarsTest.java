@@ -1,4 +1,4 @@
-package racingcar.domain.vo;
+package racingcar.domain;
 
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
-import racingcar.domain.Car;
-import racingcar.domain.RacingCars;
+import racingcar.domain.vo.CarName;
+import racingcar.domain.vo.Position;
+import racingcar.domain.vo.RandomCarSignals;
 import racingcar.util.CarNamesValidator;
 
 public class RacingCarsTest {

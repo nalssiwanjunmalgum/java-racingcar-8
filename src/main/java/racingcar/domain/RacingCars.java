@@ -17,10 +17,6 @@ public class RacingCars {
         initNames(carNamesInput);
     }
 
-    public void receiveRandomCarSignals(RandomCarSignals randomCarSignals) {
-        receiveSignals(randomCarSignals);
-    }
-
     public void receiveSignals(RandomCarSignals randomCarSignals) {
         hasSameLength(racingCars, randomCarSignals);
         receivePerSignal(randomCarSignals);
