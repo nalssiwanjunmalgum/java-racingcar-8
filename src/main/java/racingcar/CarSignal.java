@@ -11,4 +11,8 @@ public class CarSignal {
     public boolean isPermitted() {
         return carSignalValue >= STANDARD;
     }
+
+    public int getCarSignalValue() {
+        return carSignalValue;
+    }
 }
