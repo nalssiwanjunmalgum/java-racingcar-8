@@ -20,7 +20,6 @@ public class CarNameTest {
         Assertions.assertThatCode(
                 () -> new CarName("   su")
         ).doesNotThrowAnyException();
-
     }
 
     @Test
