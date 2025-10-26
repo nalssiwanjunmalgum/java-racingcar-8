@@ -3,8 +3,18 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 public class CarNameTest {
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void null_or_empty_constructor_exception(String source) {
+        Assertions.assertThatCode(
+                () -> new CarName(source)
+        ).isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Test
     @DisplayName("이름은 5자 이하만 가능합니다")
