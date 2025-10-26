@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
+import racingcar.domain.Car;
+import racingcar.domain.vo.CarName;
+import racingcar.domain.vo.Position;
+import racingcar.domain.vo.RandomCarSignals;
 import racingcar.util.CarNamesValidator;
 
 public class RacingCarsTest {
@@ -84,14 +88,14 @@ public class RacingCarsTest {
         @Test
         @DisplayName("정상 동작")
         void integration() {
-            Assertions.assertThatCode( () -> new RacingCars("pobi,woni") )
+            Assertions.assertThatCode( () -> new Car.RacingCars("pobi,woni") )
                     .doesNotThrowAnyException();
         }
 
         @Test
         @DisplayName("구성된 Car 요소 확인")
         void check_internal_element() {
-            RacingCars racingCars = new RacingCars("pobi,woni,right");
+            Car.RacingCars racingCars = new Car.RacingCars("pobi,woni,right");
             Assertions.assertThat(racingCars.getRacingCars())
                     .containsExactly(new Car(new CarName("pobi")),
                             new Car(new CarName("woni")),
@@ -101,7 +105,7 @@ public class RacingCarsTest {
         @Test
         @DisplayName("구성된 Car 요소 내 position 확인")
         void check_internal_element_position_0L() {
-            RacingCars racingCars = new RacingCars("pobi,woni,right");
+            Car.RacingCars racingCars = new Car.RacingCars("pobi,woni,right");
             List<Car> internalCars = racingCars.getRacingCars();
 
             for (Car car : internalCars) {
@@ -113,7 +117,7 @@ public class RacingCarsTest {
     @Nested
     @DisplayName("신호를 받아 전진 여부를 결정합니다")
     class moveOrStopWithRandomSignalTest {
-        RacingCars racingCars = new RacingCars("pobi,woni,right");
+        Car.RacingCars racingCars = new Car.RacingCars("pobi,woni,right");
         RandomCarSignals randomCarSignals = new RandomCarSignals(List.of(1, 3, 4));
 
         @Test

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.vo;
 
 public class CarSignal {
     private final int carSignalValue;
