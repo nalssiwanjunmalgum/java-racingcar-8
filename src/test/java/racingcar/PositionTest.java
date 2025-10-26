@@ -14,11 +14,20 @@ public class PositionTest {
     }
 
     @Test
+    @DisplayName("Position은 음수의 값을 보관할 수 없다")
+    void positionValue_should_positive() {
+        Assertions.assertThatThrownBy(() -> new Position(-1L))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("Position 증가하면 하나씩 증가한다")
     void increment_position_add_one() {
         Position position = new Position(5L);
         Assertions.assertThat(position.increment()).isEqualTo(new Position(6L));
     }
+
+
 
 
 }

@@ -6,6 +6,7 @@ public class Position {
     private final long positionValue;
 
     public Position(long positionValue) {
+        validatePositionValue(positionValue);
         this.positionValue = positionValue;
     }
 
@@ -17,8 +18,10 @@ public class Position {
         return new Position(positionValue + 1);
     }
 
-    public long getPositionValue() {
-        return positionValue;
+    private void validatePositionValue(long positionValue) {
+        if (positionValue < 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
