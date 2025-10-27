@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.domain.ErrorMessage.UNMATCHED_CARS_WITH_SIGNALS;
+import static racingcar.util.CarNamesValidator.COMMA_DELIMITER;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import racingcar.util.CarNamesValidator;
 
 public class RacingCars {
     private final List<Car> racingCars;
-    private static final String COMMA_DELIMITER = ",";
+
 
     public RacingCars(String carNamesInput) {
         validateNames(carNamesInput);

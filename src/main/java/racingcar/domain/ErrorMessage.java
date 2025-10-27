@@ -9,6 +9,7 @@ public enum ErrorMessage {
     CHECK_NUMBERS_SIZE("주입하는 수의 크기에 문제가 있습니다."),
     ENTER_NUMBER("수를 입력해주세요."),
     OVER_LETTER_LIMIT("글자 제한을 넘었습니다."),
+    DUPLICATED_MEMBER("멤버가 중복되었습니다.")
     ;
 
     private final String errorMessage;

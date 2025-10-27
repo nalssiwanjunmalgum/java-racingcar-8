@@ -78,6 +78,14 @@ public class RacingCarsTest {
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("구분자와 공백을 확인해주세요.");
             }
+
+            @Test
+            @DisplayName("동일한 이름이 있는 경우")
+            void duplicated_member_exception() {
+                Assertions.assertThatThrownBy(() -> CarNamesValidator.validateDelimiter("pobi,pobi"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("멤버가 중복되었습니다.");
+            }
         }
     }
 
