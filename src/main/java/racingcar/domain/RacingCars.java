@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.ErrorMessage.UNMATCHED_CARS_WITH_SIGNALS;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.vo.CarName;
@@ -60,7 +62,7 @@ public class RacingCars {
     private void hasSameLength(List<Car> racingCars, RandomCarSignals randomCarSignals) {
         List<CarSignal> carSignals = randomCarSignals.getCarSignals();
         if (racingCars.size() != carSignals.size()) {
-            throw new IllegalArgumentException("자동차 개수와 신호의 수가 서로 다릅니다.");
+            throw new IllegalArgumentException(UNMATCHED_CARS_WITH_SIGNALS.getMessage());
         }
     }
 

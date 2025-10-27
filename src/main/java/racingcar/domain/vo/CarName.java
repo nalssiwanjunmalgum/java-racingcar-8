@@ -1,5 +1,8 @@
 package racingcar.domain.vo;
 
+import static racingcar.domain.ErrorMessage.EMPTY_STRING;
+import static racingcar.domain.ErrorMessage.OVER_LETTER_LIMIT;
+
 import java.util.Objects;
 
 public class CarName {
@@ -22,13 +25,13 @@ public class CarName {
 
     private void validateNullOrEmpty(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(EMPTY_STRING.getMessage());
         }
     }
 
     private void validateLength(String name) {
         if (name.length() > LIMIT_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(OVER_LETTER_LIMIT.getMessage());
         }
     }
 

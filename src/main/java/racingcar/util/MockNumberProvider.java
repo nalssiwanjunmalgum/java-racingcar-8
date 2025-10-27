@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.domain.ErrorMessage.CHECK_NUMBERS_SIZE;
+
 import java.util.List;
 
 public class MockNumberProvider implements NumberProvider{
@@ -17,7 +19,7 @@ public class MockNumberProvider implements NumberProvider{
 
     private void hasSameNumberSize(int size) {
         if (mockList.size() != size) {
-            throw new IllegalArgumentException("주입하는 수의 크기에 문제가 있습니다.");
+            throw new IllegalArgumentException(CHECK_NUMBERS_SIZE.getMessage());
         }
     }
 }

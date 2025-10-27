@@ -57,5 +57,5 @@
 - [x] 3항 연산자를 쓰지 않는다.
 - [x] 메서드는 한 가지 일만 담당하도록 만든다.
 - [x] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다
-- [x] 난수 생성은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
-- [x] Console을 활용한 입력은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+- [x] 난수 생성은 *camp.nextstep.edu.missionutils.Randoms*의 pickNumberInRange()를 활용한다.
+- [x] Console을 활용한 입력은 *camp.nextstep.edu.missionutils.Console*의 readLine()을 활용한다.

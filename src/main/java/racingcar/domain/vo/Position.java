@@ -1,5 +1,7 @@
 package racingcar.domain.vo;
 
+import static racingcar.domain.ErrorMessage.PERMIT_POSSIBLE_POSITION;
+
 import java.util.Objects;
 
 public class Position {
@@ -25,7 +27,7 @@ public class Position {
 
     private void validatePositionValue(long positionValue) {
         if (positionValue < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(PERMIT_POSSIBLE_POSITION.getMessage());
         }
     }
 
