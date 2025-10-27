@@ -1,13 +1,9 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import racingcar.domain.vo.CarName;
 import racingcar.domain.vo.CarSignal;
 import racingcar.domain.vo.Position;
-import racingcar.domain.vo.RandomCarSignals;
-import racingcar.util.CarNamesValidator;
 
 public class Car {
     private Position position;
@@ -39,6 +35,10 @@ public class Car {
 
     public CarName getCarName() {
         return new CarName(carName.getNameValue());
+    }
+
+    public String getCarNameValue() {
+        return carName.getNameValue();
     }
 
     @Override

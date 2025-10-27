@@ -15,13 +15,13 @@ public class RandomCarSignals {
         return carSignalList.get(idx);
     }
 
+    public List<CarSignal> getCarSignals() {
+        return List.copyOf(carSignalList);
+    }
+
     private void initCarSignals(List<Integer> numbers) {
         for (int num : numbers) {
             carSignalList.add(new CarSignal(num));
         }
-    }
-
-    public List<CarSignal> getCarSignals() {
-        return List.copyOf(carSignalList);
     }
 }

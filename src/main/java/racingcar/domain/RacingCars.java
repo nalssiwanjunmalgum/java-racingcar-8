@@ -17,6 +17,14 @@ public class RacingCars {
         initNames(carNamesInput);
     }
 
+    public List<Car> getRacingCars() {
+        return List.copyOf(racingCars);
+    }
+
+    public int getSize() {
+        return racingCars.size();
+    }
+
     public void receiveSignals(RandomCarSignals randomCarSignals) {
         hasSameLength(racingCars, randomCarSignals);
         receivePerSignal(randomCarSignals);
@@ -62,9 +70,5 @@ public class RacingCars {
             CarSignal carSignal = randomCarSignals.getSignalAtIndex(idx);
             car.receiveCarSignal(carSignal);
         }
-    }
-
-    public List<Car> getRacingCars() {
-        return List.copyOf(racingCars);
     }
 }

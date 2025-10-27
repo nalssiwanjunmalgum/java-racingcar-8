@@ -3,6 +3,7 @@ package racingcar.domain.vo;
 import java.util.Objects;
 
 public class Position {
+    private static final int INCREASE_AMOUNT = 1;
     private final long positionValue;
 
     public Position(long positionValue) {
@@ -15,7 +16,7 @@ public class Position {
     }
 
     public Position increment() {
-        return new Position(positionValue + 1);
+        return new Position(positionValue + INCREASE_AMOUNT);
     }
 
     public long getPositionValue() {
