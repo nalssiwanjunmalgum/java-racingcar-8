@@ -50,3 +50,12 @@
 - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
   - [x] 잘못된 값을 입력한 경우 IllegalArgumentException을 발생시킨다
     - 애플리케이션은 종료된다
+
+## 프로그래밍 요구 사항
+
+- [x] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
+- [x] 3항 연산자를 쓰지 않는다.
+- [x] 메서드는 한 가지 일만 담당하도록 만든다.
+- [x] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다
+- [x] 난수 생성은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+- [x] Console을 활용한 입력은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
