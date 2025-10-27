@@ -10,6 +10,7 @@ import racingcar.domain.vo.Position;
 public class OutputView {
     private static final String STATUS_FIRST_LINE = "실행 결과";
     private static final String STATUS_FORMAT = "%s : %s\n";
+    private static final String WINNER_FORMAT = "%s : %s";
     private static final String DISPLAY_SYMBOL = "-";
     private static final String TOTAL_WINNER_MESSAGE = "최종 우승자";
     private static final String WINNER_DELIMITER = ", ";
@@ -38,7 +39,7 @@ public class OutputView {
         }
 
         String finalWinners = String.join(WINNER_DELIMITER , winners);
-        System.out.printf(STATUS_FORMAT, TOTAL_WINNER_MESSAGE, finalWinners);
+        System.out.printf(WINNER_FORMAT, TOTAL_WINNER_MESSAGE, finalWinners);
     }
 
     private void printEachStatus(Car carStatus) {
